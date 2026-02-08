@@ -1,1 +1,4 @@
-id,product,stock
+sku,stock
+SKU-A,190
+SKU-B,230
+SKU-C,200

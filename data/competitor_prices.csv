@@ -1,1 +1,4 @@
-id,product,competitor,price
+sku,price
+SKU-A,1200
+SKU-B,780
+SKU-C,980
