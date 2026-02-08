@@ -4,6 +4,12 @@ from app.services.pricing_engine import pricing_decision
 from app.services.demand_forecast_engine import forecast_demand
 from app.utils.data_loader import load_inventory
 
+# at phase 5 depends on market trend computation
+from app.services.market_trends import get_market_trend
+
+market_trend = get_market_trend(category="electronics")
+trend_line = f"Market context: {market_trend['impact']}"
+
 
 def _detect_intent(question: str) -> str:
     q = question.lower()
@@ -39,8 +45,8 @@ def copilot_decision(sku: str, question: str) -> Dict:
             confidence = 0.92
             answer = (
                 "No. Demand is outpacing inventory and stockout risk is high. "
-                "Discounting now would reduce margin without increasing sales. "
-                "Reassess after restocking."
+                "Upcoming festive demand may further increase pressure. "
+                "Discounting now would reduce margin without increasing sales."
             )
 
         elif forecast_risk == "DEAD_STOCK_RISK":
@@ -57,7 +63,7 @@ def copilot_decision(sku: str, question: str) -> Dict:
                 confidence = 0.7
                 answer = (
                     "A mild discount may help improve sales velocity, but aggressive discounting is not necessary yet. "
-                    "Monitor demand over the next few days."
+                    "Upcoming festive demand suggests waiting before taking stronger action."
                 )
 
         else:  # NORMAL / borderline

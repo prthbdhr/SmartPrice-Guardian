@@ -1,6 +1,9 @@
 {
     "kiroAgent.configureMCP": "Disabled",
     "cSpell.words": [
-        "STOCKOUT"
+        "fastapi",
+        "pydantic",
+        "STOCKOUT",
+        "uvicorn"
     ]
 }
