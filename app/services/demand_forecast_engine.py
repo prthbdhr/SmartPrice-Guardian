@@ -41,11 +41,18 @@ def forecast_demand(sku: str, window_days: int = 7) -> Dict:
             "within the next 7 days."
         )
 
-    elif predicted_demand < current_stock * 0.3:
+    elif predicted_demand < current_stock * 0.2:
         risk = "DEAD_STOCK_RISK"
         explanation = (
-            "Forecasted demand is significantly lower than available inventory, "
-            "indicating potential dead stock risk."
+            "Demand is significantly lower than inventory levels, indicating "
+            "a high risk of dead stock."
+        )
+
+    elif predicted_demand < current_stock * 0.5:
+        risk = "OVERSTOCK_RISK"
+        explanation = (
+            "Inventory levels exceed near-term demand, suggesting overstock "
+            "but not severe dead stock."
         )
 
     else:
@@ -54,6 +61,7 @@ def forecast_demand(sku: str, window_days: int = 7) -> Dict:
             "Forecasted demand is aligned with current inventory levels, "
             "indicating no immediate supply risk."
         )
+
 
     # ---- Output (LOCKED FORMAT) ----
     return {
