@@ -7,7 +7,17 @@ from app.api.market_trends import router as market_trends_router
 
 
 
-app = FastAPI(title="SmartPrice Guardian")
+app = FastAPI(
+    title="SmartPrice Guardian",
+    description="""
+    AI-powered pricing, demand forecasting, and decision copilot
+    for retail and marketplace sellers.
+
+    The system provides explainable, data-driven decisions
+    to optimize pricing, inventory, and discount strategies.
+    """,
+    version="1.0.0"
+    )
 
 app.include_router(data_summary_router)
 app.include_router(pricing_router)
