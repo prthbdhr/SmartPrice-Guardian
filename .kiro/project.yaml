@@ -1,0 +1,12 @@
+project:
+  name: SmartPrice Guardian
+  category: Retail & Marketplace Intelligence
+  description: >
+    AI-powered backend system for pricing intelligence,
+    demand forecasting, and decision support for retailers.
+  tech_stack:
+    - FastAPI
+    - Python
+    - Docker
+    - AI Decision Copilot
+  entry_type: Hackathon Submission
