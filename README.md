@@ -47,30 +47,72 @@ Retailers often struggle with:
 
 ---
 
-## 🏗️ System Architecture
+## 🏗️ System Architecture 
+
+## 🔄 Decision Flow
 
 ```
-Sales & Inventory Data
-        ↓
-Pricing Engine ←→ Demand Forecast Engine
-        ↓
-Market Trend Signals
-        ↓
-AI Decision Copilot
-        ↓
-Clear Business Action
+flowchart TD
+    A[Sales Data] --> C[Pricing Engine]
+    B[Inventory Data] --> C
+    C --> D[Demand Forecast Engine]
+    D --> E[Market Trend Signals]
+    E --> F[AI Decision Copilot]
+    F --> G[Clear Business Action]
+```
+---
+## 🧠 Intelligence Layers
+```
+flowchart LR
+    subgraph Core AI Services
+        P[Pricing Engine]
+        F[Forecast Engine]
+        M[Market Trends]
+        C[Decision Copilot]
+    end
+
+    P --> C
+    F --> C
+    M --> C
 ```
 
 ---
 
 ## 📦 Tech Stack
 
-- **Backend:** FastAPI
-- **AI Logic:** Rule-based intelligence + LLM-assisted reasoning
-- **Forecasting:** Moving average demand prediction
-- **Data:** CSV-based mock retail data
-- **Deployment:** Docker
+## 🖥 Backend Tech Stack
 
+| Layer            | Technology                          |
+|------------------|--------------------------------------|
+| API Framework    | FastAPI                              |
+| Language         | Python 3.11                          |
+| Data Layer       | CSV-based structured input           |
+| Validation       | Pydantic                             |
+| Documentation    | Auto-generated Swagger (`/docs`)     |
+
+
+---
+
+## 🤖 AI & Intelligence
+
+| Component        | Approach                             |
+|------------------|--------------------------------------|
+| Pricing Logic    | Rule-based decision engine           |
+| Forecasting      | 7-day Moving Average                 |
+| Copilot.         | Grounded decision synthesis          |
+| Trend Signals    | Scenario-based market awareness      |
+| Documentation    | Auto-generated Swagger (`/docs`)     |
+
+
+---
+
+## 🐳 Deployment
+```
+flowchart LR
+    Code --> DockerImage
+    DockerImage --> Container
+    Container --> FastAPIService
+```
 ---
 
 ## 🔗 API Endpoints Overview
